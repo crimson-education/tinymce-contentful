@@ -1,0 +1,33 @@
+{
+  "name": "tinymce-contentful-crimson",
+  "version": "0.0.1",
+  "description": "Crimson's custom tinymce editor",
+  "main": "index.js",
+  "watch": {
+    "deploy": {
+      "patterns": ["src"],
+      "extensions": ["js,css,html"]
+    }
+  },
+  "scripts": {
+    "deploy": "./deploy.sh -b s3://crimson-marketing-files -p tinymce-contentful",
+    "watch_deploy": "npm-watch deploy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crimson-education/tinymce-contentful.git"
+  },
+  "keywords": [
+    "tinymce",
+    "contentful"
+  ],
+  "author": "Guy Sherman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crimson-education/tinymce-contentful/issues"
+  },
+  "homepage": "https://github.com/crimson-education/tinymce-contentful#readme",
+  "devDependencies": {
+    "npm-watch": "^0.6.0"
+  }
+}
