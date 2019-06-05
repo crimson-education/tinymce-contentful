@@ -18,12 +18,13 @@ window.contentfulExtension.init(function(api) {
 
     tinymce.init({
       selector: "#editor",
-      plugins: 'preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount tinymcespellchecker a11ychecker imagetools textpattern help formatpainter pageembed linkchecker', //api.parameters.instance.plugins,
+      plugins: 'preview powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount tinymcespellchecker a11ychecker imagetools textpattern help formatpainter pageembed linkchecker', //api.parameters.instance.plugins,
       toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat ', //tb,
       menubar: mb,
       valid_children: '+body[style], +div[style]',
-      max_height: 500,
-      min_height: 300,
+      content_css: 'https://crimson-marketing-files.s3-ap-southeast-2.amazonaws.com/tinymce-contentful/editor.css',
+      max_height: 800,
+      min_height: 800,
       autoresize_bottom_margin: 15,
       resize: false,
       init_instance_callback : function(editor) {
@@ -79,6 +80,7 @@ window.contentfulExtension.init(function(api) {
   function loadScript(src, onload) {
     var script = document.createElement('script');
     script.setAttribute('src', src);
+    script.setAttribute('type', 'text/javascript');
     script.onload = onload;
     document.body.appendChild(script);
   }
