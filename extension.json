@@ -1,7 +1,7 @@
 {
-  "id": "TinyMCE",
-  "name": "TinyMCE",
-  "src": "https://contentful.tiny.cloud/",
+  "id": "TinyMCE-crimson",
+  "name": "TinyMCE Crimson",
+  "src": "https://crimson-marketing-files.s3-ap-southeast-2.amazonaws.com/tinymce-contentful/index.html",
   "fieldTypes": ["Text"],
   "parameters": {
     "installation": [
@@ -18,7 +18,7 @@
         "name": "TinyMCE Cloud 'channel' to use",
         "description": "",
         "required": true,
-        "default": "5"
+        "default": "1"
       }
     ],
     "instance": [
