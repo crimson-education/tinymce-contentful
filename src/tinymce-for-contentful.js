@@ -19,13 +19,18 @@ window.contentfulExtension.init(function(api) {
     tinymce.init({
       selector: "#editor",
       plugins: 'preview powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount tinymcespellchecker a11ychecker imagetools textpattern help formatpainter pageembed linkchecker', //api.parameters.instance.plugins,
-      toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat ', //tb,
+      toolbar: 'formatselect | bold italic strikethrough forecolor backcolor permanentpen formatpainter | link image media pageembed | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent | removeformat | code ', //tb,
       menubar: mb,
       valid_children: '+body[style], +div[style]',
       content_css: 'https://crimson-marketing-files.s3-ap-southeast-2.amazonaws.com/tinymce-contentful/editor.css',
       max_height: 800,
       min_height: 800,
       autoresize_bottom_margin: 15,
+      image_class_list: [
+        {title: 'None', value: ''},
+        {title: 'Background Image', value:'background-image'}
+      ],
+      visualblocks_default_state: true,
       resize: false,
       init_instance_callback : function(editor) {
         var listening = true;
