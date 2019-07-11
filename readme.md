@@ -1,50 +1,54 @@
-# TinyMCE for Contentful
 
-This repository contains the integration of the TinyMCE rich text editor into the 
-Contentful headless CMS. 
+## Development
+```
+git clone ...
+npm i
+npm run start
+```
 
-Please see [this blog post](https://go.tiny.cloud/blog/is-the-headless-cms-the-future-of-content-publishing/)
-for an introduction to TinyMCE for Contentful.
+### Add access tokens
 
-# Packaging
+- add .env file with:
+```
+TINYMCE_API_KEY=
+CONTENTFUL_SPACE=
+CONTENTFUL_SPACE_ACCESS_TOKEN=
+```
 
-This is packaged as Contentful UI Extension. The `extension.json` file defines
-the extension and points it to an external web server to serve the extension's files.
+- update .contentfulrc.json
 
-The files in `src/` are deployed to:
- - https://contentful.tiny.cloud/ (production)
- - https://contentful-staging.tiny.cloud/ (staging)
+### Move stylesheet to build folder
 
-# Forking
+- Move editorStyles.css to build folder
+- *You will need to have matching styles in your website to use the HTML outputted from the tinyMCE component.*
 
-Note that this extension only works when installed using the "src" method, 
-not the "srcdoc" method. As such, if you wish to fork this extension, you 
-will need to host the files in the `src/` folder on a web server and update
-your extension.json file to point to it.
+## Contentful
+### Extension
+- Create extension or use existing extension
+- Change the self hosted url option to http://localhost:1234
 
-# Developing
+### Content Model
+If not already created, create content model containing content with custom apparence of your extension. 
 
-To deploy experimental changes to the `extension.json` file, you can use 
-the contentful cli: 
+### Content
+Allow unsafe scripts to load when you go to the component, in Chrome this is located on the right of the url bar. 
 
-    contentful extension update --version=X
 
-where X is the previous version of the extension installed.
-This only affects your own Contentful instance.
+## Production
+```
+npm run deploy
+```
 
-To make changes to the files in `src/`, re-deploy them to the appropriate web server. 
+## Serve the application remotely
+*Because contentful can only host a single file with a size less the 200kb. In most cases you will want to serve from a remote location. 
+For example netlify, s3, etc.*
 
-Note that you will need to change the extension settings in the Contentful UI
-to set your API Key, and to change between the live and staging URLs.
+Update the self hosting url option in contentful extension settings to point to your remotely served application.
 
-Note that whenever you `contentful extension update` it will forget your settings,
-so you'll have to put in your API key and staging URL again.
 
-# Extension URL
+## Documentation
+- [Offical TinyMCE React component](https://github.com/tinymce/tinymce-react)
+- [UI Extensions SDK reference](https://www.contentful.com/developers/docs/extensibility/ui-extensions/sdk-reference/)
 
-To install the extension into Contentful, add an extension using the 
-"Install from Github" option, and enter the following URL: 
-
-https://github.com/tinymce/tinymce-contentful/blob/master/extension.json
 
 
